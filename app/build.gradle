@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.diplomadesign"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+
+MobSDK {
+    appKey "320f185e29c97"
+    appSecret "4e73d0e50a30dbf6b1f7c91af589d2cc"
+    SMSSDK {}
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation files('libs\\component_common_sdk_1.2.0.jar')
+    implementation files('libs\\BaiduLBS_Android.jar')
+    implementation files('libs\\IndoorscapeAlbumPlugin.jar')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.android.support:support-v4:4.4.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'org.litepal.android:java:3.0.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation files('libs\\fastjson-1.2.68.jar')
+    implementation 'com.mcxiaoke.volley:library:1.0.+'
+    implementation files('libs\\aliyun-java-sdk-core-4.5.1.jar')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:25.0.0'
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.baoyz.pullrefreshlayout:library:1.2.0'
+
+
+}

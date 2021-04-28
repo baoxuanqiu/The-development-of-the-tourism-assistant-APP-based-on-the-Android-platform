@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/background">
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:clickable="true" />
+        <!--每日必应一图，ScrollView会ImageView覆盖，让其变成背景图片-->
+        <ImageView
+            android:id="@+id/bing_pic_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <!--滑动菜单-->
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--主界面的内容，提供刷新功能-->
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:id="@+id/weather_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:overScrollMode="never"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fitsSystemWindows="true"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/show_weather_title" />
+
+                        <include layout="@layout/show_weather_now" />
+
+                        <include layout="@layout/show_weather_forecast" />
+
+                        <include layout="@layout/show_weather_aqi" />
+
+                        <include layout="@layout/show_weather_suggestion" />
+                    </LinearLayout>
+
+                </ScrollView>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <!--滑动菜单的内容-->
+            <fragment
+                android:id="@+id/choose_area_fragment"
+                android:name="com.example.diplomadesign.Weather.ChooseAreaFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start" />
+
+        </androidx.drawerlayout.widget.DrawerLayout>
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="#B2BFBF"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/home_activity_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@drawable/tab_menu_text"
+            android:text="首页"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/my_activity_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@drawable/tab_menu_text"
+            android:text="我的"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+        <TextView
+            android:id="@+id/weather_activity_text"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@drawable/tab_menu_text"
+            android:text="天气"
+            android:textStyle="bold"
+            android:textSize="16dp" />
+    </LinearLayout>
+</LinearLayout>

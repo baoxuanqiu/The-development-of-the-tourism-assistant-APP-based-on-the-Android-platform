@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="UserAccount"></dbname>
+
+    <version value="19"></version>
+
+    <list>
+        <mapping class="com.example.diplomadesign.account.Account"></mapping>
+        <mapping class="com.example.diplomadesign.account.LocationInfo"></mapping>
+        <mapping class="com.example.diplomadesign.travel_record.TravelRecord"></mapping>
+        <mapping class="com.example.diplomadesign.travel_record.TravelPhotos"></mapping>
+    </list>
+</litepal>
